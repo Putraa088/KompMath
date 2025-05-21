@@ -66,72 +66,72 @@ for k = 1:max_iter
  disp(x);
 
 
-% Tugas Nomor 2
-
-clc; clear;
-
-% Fungsi yang akan diintegralkan
-f = @(x) 2*x.^3;
-
-% Interval dan lebar langkah
-a = 0; b = 1;
-h = 0.1;
-x = a:h:b;
-y = f(x);
-n = length(x) - 1;
-
-% 1. Aturan Trapesium
-Tn = h/2 * (y(1) + 2*sum(y(2:end-1)) + y(end));
-
-% 2. Riemann Kiri
-R_left = h * sum(y(1:end-1));
-
-% 3. Riemann Kanan
-R_right = h * sum(y(2:end));
-
-% 4. Nilai eksak
-L_exact = integral(f, a, b);  % bisa juga pakai 0.5
-
-% 5. Cetak hasil
-fprintf('Metode Trapesium     : %.6f\n', Tn);
-fprintf('Riemann Kiri         : %.6f\n', R_left);
-fprintf('Riemann Kanan        : %.6f\n', R_right);
-fprintf('Nilai eksak (analitik): %.6f\n', L_exact);
-fprintf('Error Trapesium      : %.6f\n', abs(Tn - L_exact));
-fprintf('Error Riemann Kiri   : %.6f\n', abs(R_left - L_exact));
-fprintf('Error Riemann Kanan  : %.6f\n', abs(R_right - L_exact));
-
-% 6. Grafik
-xx = linspace(a, b, 1000);
-yy = f(xx);
-
-figure;
-
-% --- Plot Fungsi Asli
-subplot(3,1,1);
-plot(xx, yy, 'k-', 'LineWidth', 1.5); hold on;
-for i = 1:n
-    % Trapesium antara titik ke-i dan ke-(i+1)
-    fill([x(i) x(i) x(i+1) x(i+1)], [0 y(i) y(i+1) 0], 'c', 'FaceAlpha', 0.5, 'EdgeColor', 'b');
-end
-title('Aturan Trapesium');
-xlabel('x'); ylabel('f(x)'); grid on;
-
-% --- Riemann Kiri
-subplot(3,1,2);
-plot(xx, yy, 'k-', 'LineWidth', 1.5); hold on;
-for i = 1:n
-    fill([x(i) x(i) x(i+1) x(i+1)], [0 y(i) y(i) 0], 'g', 'FaceAlpha', 0.5, 'EdgeColor', 'k');
-end
-title('Jumlahan Riemann Kiri');
-xlabel('x'); ylabel('f(x)'); grid on;
-
-% --- Riemann Kanan
-subplot(3,1,3);
-plot(xx, yy, 'k-', 'LineWidth', 1.5); hold on;
-for i = 1:n
-    fill([x(i) x(i) x(i+1) x(i+1)], [0 y(i+1) y(i+1) 0], 'm', 'FaceAlpha', 0.5, 'EdgeColor', 'k');
-end
-title('Jumlahan Riemann Kanan');
-xlabel('x'); ylabel('f(x)'); grid on;
+% % Tugas Nomor 2
+% 
+% clc; clear;
+% 
+% % Fungsi yang akan diintegralkan
+% f = @(x) 2*x.^3;
+% 
+% % Interval dan lebar langkah
+% a = 0; b = 1;
+% h = 0.1;
+% x = a:h:b;
+% y = f(x);
+% n = length(x) - 1;
+% 
+% % 1. Aturan Trapesium
+% Tn = h/2 * (y(1) + 2*sum(y(2:end-1)) + y(end));
+% 
+% % 2. Riemann Kiri
+% R_left = h * sum(y(1:end-1));
+% 
+% % 3. Riemann Kanan
+% R_right = h * sum(y(2:end));
+% 
+% % 4. Nilai eksak
+% L_exact = integral(f, a, b);  % bisa juga pakai 0.5
+% 
+% % 5. Cetak hasil
+% fprintf('Metode Trapesium     : %.6f\n', Tn);
+% fprintf('Riemann Kiri         : %.6f\n', R_left);
+% fprintf('Riemann Kanan        : %.6f\n', R_right);
+% fprintf('Nilai eksak (analitik): %.6f\n', L_exact);
+% fprintf('Error Trapesium      : %.6f\n', abs(Tn - L_exact));
+% fprintf('Error Riemann Kiri   : %.6f\n', abs(R_left - L_exact));
+% fprintf('Error Riemann Kanan  : %.6f\n', abs(R_right - L_exact));
+% 
+% % 6. Grafik
+% xx = linspace(a, b, 1000);
+% yy = f(xx);
+% 
+% figure;
+% 
+% % --- Plot Fungsi Asli
+% subplot(3,1,1);
+% plot(xx, yy, 'k-', 'LineWidth', 1.5); hold on;
+% for i = 1:n
+%     % Trapesium antara titik ke-i dan ke-(i+1)
+%     fill([x(i) x(i) x(i+1) x(i+1)], [0 y(i) y(i+1) 0], 'c', 'FaceAlpha', 0.5, 'EdgeColor', 'b');
+% end
+% title('Aturan Trapesium');
+% xlabel('x'); ylabel('f(x)'); grid on;
+% 
+% % --- Riemann Kiri
+% subplot(3,1,2);
+% plot(xx, yy, 'k-', 'LineWidth', 1.5); hold on;
+% for i = 1:n
+%     fill([x(i) x(i) x(i+1) x(i+1)], [0 y(i) y(i) 0], 'g', 'FaceAlpha', 0.5, 'EdgeColor', 'k');
+% end
+% title('Jumlahan Riemann Kiri');
+% xlabel('x'); ylabel('f(x)'); grid on;
+% 
+% % --- Riemann Kanan
+% subplot(3,1,3);
+% plot(xx, yy, 'k-', 'LineWidth', 1.5); hold on;
+% for i = 1:n
+%     fill([x(i) x(i) x(i+1) x(i+1)], [0 y(i+1) y(i+1) 0], 'm', 'FaceAlpha', 0.5, 'EdgeColor', 'k');
+% end
+% title('Jumlahan Riemann Kanan');
+% xlabel('x'); ylabel('f(x)'); grid on;
 
