@@ -18,6 +18,7 @@ swarm(:,2,:) = 0;                           %Velocity awal partikel
 swarm(:,4,1) = 1000;                        %Posisi terbaik saat ini
 plotObjFcn = 1;
 
+
 %% Fungsi
 objfcn = @(x)0.5*((x(:,1).^4)-16*(x(:,1).^2)+5*(x(:,1)))+0.5*((x(:,2).^4)-16*(x(:,2).^2)+5*(x(:,2)));
 
